@@ -31,6 +31,19 @@ class App extends Component{
       editItmen: false
     })
   };
+
+  clearList = ()=>{
+    this.setState({
+      items:[]
+    })
+  }
+
+  handleDelete = (id)=>{
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    this.setState({items:filteredItems})
+  }
+
+
   render(){
     return(
       <div className="container">
@@ -38,7 +51,7 @@ class App extends Component{
           <div className="col-10 mx-auto col-md-8 mt-4"> 
           <h3 className="text-capitalize text-center">To Do Input</h3>
           <Todoinput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-          <Todolist items={this.state.items}/>
+          <Todolist items={this.state.items} clearList = {this.clearList} handleDelete = {this.handleDelete}/>
           </div>
         </div>
       </div>

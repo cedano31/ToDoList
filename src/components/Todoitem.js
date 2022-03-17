@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Todoitem extends Component {
 
   render() {
-      const {title}= this.props;
+      const {title,handleDelete}= this.props;
     return (
 
         <li className='list-group-item text-capitalize d-flex justify-content-between my-2'>
@@ -11,7 +11,7 @@ export default class Todoitem extends Component {
             <div>
                 <button className="btn btn-primary">Undate</button>
                 
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger" onClick={handleDelete} > Delete</button>
             </div>
         </li>
     )
